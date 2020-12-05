@@ -1,26 +1,59 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Table } from './Table';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends React.Component<{},{}> {
+
+    students = [
+        {name:'Venkatesh'},
+        {name:'Vincent'},
+        {name:'KaliDevi'},
+        {name:'DharaniPriya'}
+    ]
+
+    render() {
+        console.log("App render");
+        
+        return (
+            <div className='App'>
+                <Table students={this.students}/>
+            </div>
+        );
+    }
 }
 
-export default App;
+// interface App1Props {
+//     name: string;
+//     Vincent: (newVal: string) => void;
+// }
+// interface App1State {
+//     userName: string;
+// }
+// class App1 extends React.Component<App1Props, App1State> {
+//     state = {
+//         userName: 'Vincent',
+//     };
+//     constructor(props: App1Props) {
+//         super(props);
+//     }
+
+//     handleEvent = (e: any) => {
+//         console.log(e.target.value);
+//         this.props.Vincent(e.target.value);
+//         // this.props.name = e.target.value;
+//         this.setState({ userName: e.target.value });
+//     };
+
+//     render() {
+//         console.log('render called');
+
+//         return (
+//             <div>
+//                 <h1>{this.state.userName}</h1>
+//                 <input value={this.state.userName} onChange={this.handleEvent} />
+//             </div>
+//         );
+//     }
+// }
+
+// export default App;
